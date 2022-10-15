@@ -12,7 +12,10 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
     "react-scripts": "5.0.1",
+    "react-wavesurfer": "^0.8.6",
+    "react-wavesurfer.js": "^0.0.8",
     "styled-components": "^5.3.6",
+    "wavesurfer-react": "^2.2.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

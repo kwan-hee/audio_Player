@@ -1,8 +1,9 @@
 import React, { useState, useCallback } from 'react';
 import SetTimer from '../compliments/SetTimer';
-import { Player } from '../compliments/Player';
 import styled from 'styled-components';
 import css from './AudioRecords.module.css';
+import AudioDownload from '../compliments/AudioDownload';
+import MyWaveform from '../compliments/MyWaveform';
 
 export const AudioRecord = () => {
     const [stream, setStream] = useState();
@@ -87,20 +88,24 @@ export const AudioRecord = () => {
         // File 생성자를 사용해 파일로 변환
         const sound = new File([audioUrl], 'soundBlob', {
             lastModified: new Date().getTime(),
-            type: 'audio',
+            type: 'audio/wav',
         });
         console.log(sound); // File 정보 출력
     }, [audioUrl]);
 
-    // 😀😀😀
     const play = () => {
         const audio = new Audio(sound);
         audio.loop = false;
         audio.volume = 1;
         audio.play();
+        return audio;
     };
 
-    console.log('audio', sound);
+    const volume = new Audio(sound);
+    const result = volume.src.replace('blob:', '');
+    const vol = volume.src;
+
+    console.log('audio', volume.src);
     const onChange = (e) => {
         setTime(e.target.value);
         // setTime('');
@@ -109,7 +114,6 @@ export const AudioRecord = () => {
     const onReset = () => {
         setTime('');
     };
-
     return (
         <div>
             <ContainerWarpper>
@@ -127,19 +131,33 @@ export const AudioRecord = () => {
                 </div>
                 <div>
                     <div className={css.wrapper2}>
-                        <input type="number" onChange={onChange} value={time} />
+                        <input
+                            type="number"
+                            onChange={onChange}
+                            value={time}
+                            placeholder="녹음 시간을 입력하세요!"
+                            step="100"
+                        />
                         <button onClick={onReset}>Reset</button>
                         <br />
-                        {/* <b>값: {time} </b> */}
                     </div>
                     <div className={css.wrapper3}>
-                        <Player audioUrl={audioUrl} setIsPlay={true} />
+                        {/* <Player audioUrl={audioUrl} setIsPlay={true} /> */}
                     </div>
                     <div>
-                        <audio controls  onClick={}>
-                            <a>Download audio</a>
-                        </audio>
+                        <MyWaveform audioSrc={vol} />
                     </div>
+                    <div>
+                        <AudioWarpper>
+                            <audio controls src={vol}>
+                                <a>Download audio</a>
+                            </audio>
+                        </AudioWarpper>
+                    </div>
+                    <div>
+                        <AudioDownload audioSrc={vol} />
+                    </div>
+                    <div></div>
                 </div>
             </ContainerWarpper>
         </div>
@@ -150,4 +168,7 @@ const ContainerWarpper = styled.div`
     border: 1px solid black;
     width: 50%;
     margin-left: 200px;
+`;
+const AudioWarpper = styled.div`
+    margin-left: 150px;
 `;
