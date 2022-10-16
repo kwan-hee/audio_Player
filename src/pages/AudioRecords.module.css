@@ -1,24 +1,143 @@
 .wrapper {
-    display:flex;
+    display: flex;
     justify-content: center;
-   margin-top: 100px;
-}
-
-.wrapper1 {
-    display:flex;
-    justify-content: center;
-   margin-top: -10px;
-}
-
-.wrapper2 {
-    display:flex;
-    justify-content: center;
-   margin-top: -10px;
-}
-
-.wrapper3 {
-    display:flex;
-    justify-content: center;
-   margin-top: 30px;
+    margin: 0 auto;
+    margin-top: 100px;
+  }
   
-}
+  .wrapper1 {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .wrapper2 {
+    display: flex;
+    margin-top: 300px;
+    justify-content: center;
+    margin-top: 0px;
+  }
+  
+  .wrapper3 {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  
+  ul,
+  li {
+    list-style: none;
+  }
+  
+  .row::after {
+    display: block;
+    clear: both;
+    content: '';
+  }
+  
+  .wrapper2 > input {
+    margin-top: 20px;
+    display: block;
+    clear: both;
+  }
+  .wrapper2 > button {
+    margin-top: 20px;
+    display: block;
+    clear: both;
+  }
+  
+  .wave {
+    display: block;
+    clear: both;
+    margin: 0 auto;
+    margin-left: -120px;
+  }
+  
+  .audiowarpper {
+    margin-top: -70px;
+    margin-left: 0px;
+    /* display: block; */
+  }
+  
+  .audiowarpper > audio {
+    margin-left: 00px;
+    width: 80%;
+    margin-top: 100px;
+  }
+  
+  @media screen and (max-width: 1000px) {
+    .wrapper2 > input {
+      margin-top: 20px;
+      display: block;
+      clear: both;
+      width: 55%;
+    }
+    .wave {
+      width: 130%;
+      margin-left: -70px;
+    }
+    .audiowarpper > audio {
+      margin-left: 60px;
+      width: 75%;
+      /* margin: 0 auto; */
+    }
+  }
+  
+  @media screen and (max-width: 1000px) {
+    .wrapper2 > input {
+      margin-top: 20px;
+      display: block;
+      clear: both;
+      width: 55%;
+    }
+    .wave {
+      width: 140%;
+      margin-left: -100px;
+    }
+    .audiowarpper > audio {
+      margin-left: 40px;
+      width: 75%;
+      /* margin: 0 auto; */
+    }
+  }
+  
+  @media screen and (max-width: 750px) {
+    .wrapper2 > input {
+      margin-top: 20px;
+      display: block;
+      clear: both;
+      width: 65%;
+    }
+    .wave {
+      width: 140%;
+      margin-left: -110px;
+    }
+    .audiowarpper > audio {
+      margin-left: 30px;
+      width: 75%;
+      /* margin: 0 auto; */
+    }
+  }
+  
+  @media screen and (min-width:1000px) {
+    .wrapper2 > input {
+      margin-top: 20px;
+      display: block;
+      clear: both;
+      width: 80%;
+    }
+    .wave {
+      width:174%;
+      margin-left: -120px;
+    }
+    .audiowarpper > audio {
+      margin-left: 30px;
+      width: 75%;
+      /* margin: 0 auto; */
+    }
+  }

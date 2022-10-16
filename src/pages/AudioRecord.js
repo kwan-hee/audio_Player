@@ -116,6 +116,7 @@ export const AudioRecord = () => {
     };
     return (
         <div>
+            <RecorderContainer>
             <ContainerWarpper>
                 <div className={css.wrapper}>
                     <button onClick={onRec ? onRecAudio : offRecAudio}>
@@ -144,15 +145,15 @@ export const AudioRecord = () => {
                     <div className={css.wrapper3}>
                         {/* <Player audioUrl={audioUrl} setIsPlay={true} /> */}
                     </div>
-                    <div>
+                    <div className={css.wave}>
                         <MyWaveform audioSrc={vol} />
                     </div>
-                    <div>
-                        <AudioWarpper>
+                    <div className={css.audiowarpper}>
+                        {/* <AudioWarpper> */}
                             <audio controls src={vol}>
                                 <a>Download audio</a>
                             </audio>
-                        </AudioWarpper>
+                        {/* </AudioWarpper> */}
                     </div>
                     <div>
                         <AudioDownload audioSrc={vol} />
@@ -160,6 +161,7 @@ export const AudioRecord = () => {
                     <div></div>
                 </div>
             </ContainerWarpper>
+            </RecorderContainer>
         </div>
     );
 };
@@ -171,4 +173,15 @@ const ContainerWarpper = styled.div`
 `;
 const AudioWarpper = styled.div`
     margin-left: 150px;
+`;
+
+const RecorderContainer = styled.div`
+  height: 100vh;
+  overflow-y: hidden;
+  .row::after{
+    display:block;
+    clear: both;
+    content: '';
+  } 
+
 `;
